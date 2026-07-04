@@ -1,0 +1,6 @@
+@ShopNest.PL_HostAddress = http://localhost:5276
+
+GET {{ShopNest.PL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
