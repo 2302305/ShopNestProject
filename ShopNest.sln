@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopNest.PL", "ShopNest.PL\ShopNest.PL.csproj", "{63A48D64-2CF3-4F3A-8849-779ACADE96BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopNest.API", "ShopNest.PL\ShopNest.API.csproj", "{63A48D64-2CF3-4F3A-8849-779ACADE96BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationCoreLayer", "ApplicationCoreLayer", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject

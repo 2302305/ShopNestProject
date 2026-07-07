@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using ShopNest.Presistence.Data.DbContexts;
+
 namespace ShopNest.PL
 {
     public class Program
@@ -14,7 +17,10 @@ namespace ShopNest.PL
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddDbContext<StoreDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
             #endregion
             #region DI Container Building -> IService Provider
             var app = builder.Build();
