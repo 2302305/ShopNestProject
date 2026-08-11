@@ -7,15 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\products\CasualSneakers.jpg" />
+    <None Include="wwwroot\Images\products\ClassicBlackDressPants.jpg" />
+    <None Include="wwwroot\Images\products\ClassicWhiteTShirt.jpeg" />
+    <None Include="wwwroot\Images\products\CottonHoodie.jpg" />
+    <None Include="wwwroot\Images\products\DenimJacket.jpg" />
+    <None Include="wwwroot\Images\products\FormalBlazer.jpg" />
+    <None Include="wwwroot\Images\products\KnittedSweater.jpg" />
+    <None Include="wwwroot\Images\products\MensLeatherJacket.jpg" />
+    <None Include="wwwroot\Images\products\MensPoloShirt.jpg" />
+    <None Include="wwwroot\Images\products\SlimFitJeans.jpg" />
+    <None Include="wwwroot\Images\products\SummerFloralDress.jpg" />
+    <None Include="wwwroot\Images\products\WomensTrenchCoat.jpeg" />
+    <None Include="wwwroot\Images\products\WoolScarf.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>

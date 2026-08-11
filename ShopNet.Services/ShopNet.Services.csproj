@@ -3,8 +3,14 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+      <NoWarn>NU1903</NoWarn>
+      <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.17" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ShopNest.Domain\ShopNest.Domain.csproj" />
