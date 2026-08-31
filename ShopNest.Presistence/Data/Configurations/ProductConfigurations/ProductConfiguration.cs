@@ -1,7 +1,6 @@
-﻿
-namespace ShopNest.Presistence.Data.Configurations
+﻿namespace ShopNest.Presistence.Data.Configurations.ProductConfigurations
 {
-    public class ProductConfigurations : IEntityTypeConfiguration<Product>
+    public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using ShopNest.Domain.Entities.ProductModule;
 using ShopNest.Shared.DTOs.ProductDTOs;
 
-namespace ShopNet.Services.MappingProfiles
+namespace ShopNet.Services.MappingProfiles.PictureResolve
 {
     public class ProductPictureUrlResolver(IConfiguration configuration) : IValueResolver<Product, ProductDTO, string>
     {

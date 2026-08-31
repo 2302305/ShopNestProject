@@ -1,4 +1,4 @@
-﻿namespace ShopNest.Presistence.Data.Configurations
+﻿namespace ShopNest.Presistence.Data.Configurations.ProductConfigurations
 {
     internal class ProductTypeConfiguration : IEntityTypeConfiguration<ProductType>
     {

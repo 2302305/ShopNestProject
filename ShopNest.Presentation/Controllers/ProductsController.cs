@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShopNest.Presentation.Attributes;
 using ShopNest.Services.Abstraction.Services;
 using ShopNest.Shared;
 using ShopNest.Shared.DTOs.ProductDTOs;
@@ -9,17 +10,21 @@ namespace ShopNest.Presentation.Controllers
     [Route("api/[Controller]")]
     public class ProductsController(IProductService productService) : ControllerBase
     {
+        #region GetAllWithRedis
         //GetALL
         [HttpGet]
+        [RedisCache(5)]
         public async Task<ActionResult<PaginatedResult<ProductDTO>>> GetAllProducts([FromQuery] ProuctQueryParams QueryParams)
         {
             var products = await productService.GetAllProductsAsync(QueryParams);
             return Ok(products);
         }
+        #endregion
 
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDTO>> GetById([FromRoute] int id)
         {
+            //throw new Exception();
             var product = await productService.GetProductByIdAsync(id)!;
             return Ok(product);
         }

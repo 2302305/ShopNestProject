@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using ShopNest.Domain.Entities.ProductModule;
 using ShopNest.Shared.DTOs.ProductDTOs;
+using ShopNet.Services.MappingProfiles.PictureResolve;
 
-namespace ShopNet.Services.MappingProfiles
+namespace ShopNet.Services.MappingProfiles.ProductProfiles
 {
     internal class ProductProfile : Profile
     {

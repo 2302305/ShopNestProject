@@ -10,7 +10,7 @@ namespace ShopNest.Presistence.Data.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfigurations).Assembly);
+            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfiguration).Assembly);
         }
     }
 }

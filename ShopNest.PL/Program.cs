@@ -2,12 +2,18 @@ using Microsoft.EntityFrameworkCore;
 using ShopNest.API.Extensions;
 using ShopNest.Domain.Contracts;
 using ShopNest.Domain.Contracts.Initialization;
+using ShopNest.Domain.Contracts.RepositoryAbstraction;
+using ShopNest.Domain.Contracts.RepositoryAbstraction.BasketRepositoryAbstraction;
 using ShopNest.Presistence.Data.DataSeeding;
 using ShopNest.Presistence.Data.DbContexts;
 using ShopNest.Presistence.Repositories;
+using ShopNest.Presistence.Repositories.BasketRepositories;
+using ShopNest.Services.Abstraction.ServiceAbstractions;
 using ShopNest.Services.Abstraction.Services;
-using ShopNet.Services.MappingProfiles;
+using ShopNet.Services.MappingProfiles.PictureResolve;
 using ShopNet.Services.ServicesImplementation;
+using StackExchange.Redis;
+using ExceptionHandlerMiddleware = ShopNest.API.CustomMiddlwares.ExceptionHandlerMiddleware;
 
 namespace ShopNest.PL
 {
@@ -27,6 +33,14 @@ namespace ShopNest.PL
             builder.Services.AddScoped<IDataInitializer, DataInitializer>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+            builder.Services.AddScoped<IBasketService, BasketService>();
+            builder.Services.AddScoped<ICacheRepository, CacheRepository>();
+            builder.Services.AddScoped<ICacheService, CacheService>();
+            builder.Services.AddSingleton<IConnectionMultiplexer>(options =>
+            {
+                return ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("RedisConnection")!);
+            });
             //Imapper 15 License in production
             //builder.Services.AddAutoMapper(l => l.LicenseKey = "", typeof(ProductProfile).Assembly);
             //Imapper 14 No License Required in Production niether development
@@ -43,6 +57,25 @@ namespace ShopNest.PL
             #endregion
 
             #region Pipeline Configuration -> Middlewares Sequence
+            //_ = app.Use(async (context, next) =>
+            //{
+            //    try
+            //    {
+            //        await next();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);//Logg in Console
+            //        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            //        await context.Response.WriteAsJsonAsync(new
+            //        {
+            //            StatusCode = StatusCodes.Status500InternalServerError,
+            //            Error = $"Unexpected Error {ex.Message}"
+            //        });
+            //    }
+            //});
+
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
